@@ -69,7 +69,17 @@ if __name__ == "__main__":
     file_path = "C:\Users\Mayank kumar\Desktop\End-to_End House Prediction Model\data\archive.zip"
 
     # Extracting the file extention 
-    file_extention=os.path.splitext(file_path)[1]
+    file_extension=os.path.splitext(file_path)[1]
+
+    # Object creation of Data_ingestor_factory 
+    data_ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
+
+    # Ingest the data and load it into Dataframe
+    df = data_ingestor.ingest(file_path)
+
+    # Show the dataframe
+    df.head()
+
 
 
 
